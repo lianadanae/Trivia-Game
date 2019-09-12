@@ -1,0 +1,42 @@
+body {
+    background-image: url("../images/us-capital-map.jpg");
+}
+
+#game {
+    height: 900px;
+    width: 600px;
+    margin: auto;
+    padding: 50px;
+    background-color: rgb(114, 211, 252);
+    color: rgb(244, 53, 72);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+
+}
+
+#start {
+    text-align: center;
+    color: blue;
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+}
+
+
+#submit {
+    text-align: center;
+    color: blue;
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+}
+/* #results {
+    height: 900px;
+    width: 600px;
+    margin: auto;
+    padding: 50px;
+    background-color: rgb(114, 211, 252);
+    color: rgb(244, 53, 72);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+} */
