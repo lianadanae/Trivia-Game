@@ -1,42 +1,84 @@
+html, body {
+    height: 100%;
+}
+
 body {
+    text-align: center;
     background-image: url("../images/us-capital-map.jpg");
 }
 
-#game {
-    height: 900px;
-    width: 600px;
-    margin: auto;
-    padding: 50px;
+#wrapper {
+    width: 960px;
+    min-height: 80%;
+    box-sizing: border-box;
+    padding: 5% 0;
+    margin: 5% auto;
     background-color: rgb(114, 211, 252);
-    color: rgb(244, 53, 72);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-
+    border: 3px solid royalblue;
 }
+
+#sub-wrapper {
+    position: relative;
+    top: 20%;
+    background-color: white;
+  }
+
+button {
+    display: block;
+    width: 300px;
+    height: 100px;
+    margin: 10px auto 0;
+    font-size: 40px;
+    cursor: pointer;
+    background:rgb(244, 53, 72);
+    border: 0;
+  }
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    color: rgb(244, 53, 72);
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 35px;
+  }
 
 #start {
     text-align: center;
-    color: blue;
-    height: 70px;
-    width: 150px;
-    font-size: 25px;
+    color:white;
+    border: 2px solid blue;
+    font-size: 1.5em;
 }
 
-
-#submit {
-    text-align: center;
-    color: blue;
-    height: 70px;
-    width: 150px;
-    font-size: 25px;
-}
-/* #results {
-    height: 900px;
-    width: 600px;
+#quiz {
     margin: auto;
     padding: 50px;
-    background-color: rgb(114, 211, 252);
-    color: rgb(244, 53, 72);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: blue;
+    line-height: 2;
     text-align: center;
-} */
+}
+
+#quiz .question {
+font-style: bold;
+}
+
+
+ #submit {
+    text-align: center;
+    color: blue;
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+}
+#results {
+    height: 20%;
+    width: 960px;
+    margin: auto;
+    color: rgb(244, 53, 72);
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    text-align: center;
+} 
