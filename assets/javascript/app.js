@@ -10,151 +10,168 @@
 // Don't forget to include a countdown timer.
 // When a player clicks on the Start button hide the button and show time remaining and questions
 
-$(document).ready(function () {
 
-    var number = 100;
-    var intervalId;
-    $("#submit").hide();
-    $("#start").on("click", function () {
-        $("#start").hide();
+var number = 100;
+var intervalId;
 
-        generateQuestions();
-        run();
-        $("#submit").show();
-    });
+// Hide the submit button
+$("#submit").hide();
 
+//When start button is clicked, hide start button and generate quiz questions
+$("#start").on("click", function () {
+    $("#start").hide();
 
-    function run() {
-        intervalId = setInterval(decrement, 1000);
-    }
-
-    function decrement() {
-
-        number--;
-
-        $("#time-left").html("<h2>" + number + "</h2>");
-
-        if (number === 0) {
-
-            stop();
-
-            $("#results").html("<h2> All Done! </h2>");
-        }
-    }
-
-    function stop() {
-
-        clearInterval(intervalId);
-    }
-
-
-    //Question & Answer Array
-    var questions = [
-        {
-            question: "What is the capital of Montana?",
-            choices: ["Billings", "Helena", "Bozeman", "Missoula"],
-            answer: "Helena"
-        },
-        {
-            question: "What is the capital of Mississippi?",
-            choices: ["Biloxi", "Gulfport", "Hattiesburg", "Jackson"],
-            answer: "Jackson"
-        },
-
-        {
-            question: "What is the capital of Missouri?",
-            choices: ["Columbia", "St. Louis", "Jefferson City", "Kansas City"],
-            answer: "Jefferson City"
-        },
-        {
-            question: "What is the capital of Maryland?",
-            choices: ["Baltimore", "Annapolis", "Rockville", "Bethesda"],
-            answer: "Annapolis"
-        }
-    ];
-
-
-    //Function to generate the quiz questions
-    // var output = [];
-    // var answers;
-
-    function generateQuestions() {
-        for (var i = 0; i < questions.length; i++) {
-            makeQuestion(questions[i], i);
-        }
-    }
-
-    function makeQuestion(Q, qNumber) {
-        var qBox = $('<div>');
-        var question = $('<h3>').text(Q.question);
-        var optionsBox = $('<div>');
-        for (var i = 0; i < Q.choices.length; i++){
-            var radioBtn = $('<input>');
-            var choice = Q.choices[i];
-            radioBtn.attr('value', choice);
-            radioBtn.attr('name', 'q' + qNumber);
-            radioBtn.attr('type', 'radio');
-            optionsBox.append(radioBtn, '<span>' + choice +  '</span>', '<br />');
-        }
-        qBox.append(question, optionsBox);
-        $('#quiz').append(qBox);
-    
-    
-    }
-//     var score = 0;
-
-// for(var i = 0; i < questions.length; i++){
-//      var response = (questions[i]);
-//      if(response == questions[i].answer){
-//           score++;
-        
-//      } else {
-//           score--);
-//      }
-// }
-    
-        //  $("#quiz").on("change", ".form-check-input", function () {
-        //     console.log(this);
-        // //     let questionIndex = $(this).attr("name");
-        // //     console.log(questions[questionIndex]);
-        // //     let answer = $(this).val();
-        // //     questions[questionIndex].userAnswer = answer;
-        //    });
-    
-    
-        
-
-// var correct = 0;
-// var incorrect = 0;
-// var unanswered = 0;
-    // Function to get results:
-    //  Correct Answers:   var radioValue = $("input[name='choice']:checked"). val();
-    //  Incorrect Answers:
-    //  Unanswered:
-
-    //  function getResults() {
-    //     for (var i = 0; i < choices.length; i++) {
-    //        getResults(choices[i], i);
-        
-    //     //  var radioValue = $("input[name='choice']:checked"). val();
-    //     }
-    //   }
-    //   $("#results").on("click", function () {
-
-
-
-// adds results of game (correct, incorrect, unanswered) to the page
-// $('#results')
-// .html(
-// '<p>Correct: </p>'+
-// '<p>Incorrect: </p>'+
-// '<p>Unaswered: </p>');
-
-// // Hide the game section
-// $('#quiz').hide();
-
-// // Show the start button to begin a new game
-// $('#start').show();
-//      })
-
+    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton)
+    $("#submit").show();
+    run();
 });
+
+
+// Function to start timer
+function run() {
+    intervalId = setInterval(decrement, 1000);
+}
+
+// Function to decrease timer and when timer stops show message "All done!"
+function decrement() {
+
+    number--;
+
+    $("#time-left").html("<h2>Time Remaining: " + number + " Seconds</h2>");
+
+    if (number === 0) {
+
+        stop();
+
+        $("#results").html("<h2> All Done! </h2>");
+    }
+}
+// Function to clear timer
+function stop() {
+    clearInterval(intervalId);
+}
+
+//Question & Answer Array
+var myQuestions = [{
+        question: "What is the capital of Montana?",
+        answers: {
+            a: "Billings",
+            b: "Helena",
+            c: "Bozeman",
+            d: "Missoula"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Mississippi?",
+        answers: {
+            a:"Biloxi",
+            b:"Gulfport",
+            c:"Hattiesburg",
+            d:"Jackson"
+        },
+        correctAnswer: "d"
+    },
+
+    {
+        question: "What is the capital of Missouri?",
+        answers: {
+            a:"Columbia",
+            b:"St. Louis",
+            c:"Jefferson City",
+            d:"Kansas City"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Maryland?",
+        answers: {
+            a:"Baltimore",
+            b:"Annapolis",
+            c:"Rockville",
+            d:"Bethesda"
+        },
+        correctAnswer: "b"
+    }
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+
+//Function to generate the quiz questions
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
+
+    function showQuestions(questions, quizContainer) {
+        //store the output and the answer choices
+        var output = [];
+        var answers;
+
+        // for each question
+        for (var i = 0; i < questions.length; i++) {
+            //reset the list of answers
+            answers = [];
+            //
+            for (correctAnswer in questions[i].answers) {
+                //add an html radio button
+                answers.push(
+                    `<label><input type="radio" name="question${i}" value="${correctAnswer}">${correctAnswer}: ${questions[i].answers[correctAnswer]}</label>`
+                );
+            }
+            //add this question and its answers to the output
+            output.push(
+                '<div class="question">' + questions[i].question + '</div>' +
+                '<div class="answers">' + answers.join('') + '</div>'
+            );
+        }
+        //combine output list into one string of html and put it on the page
+        quizContainer.innerHTML = output.join('');
+    }
+
+    function showResults(questions, quizContainer, resultsContainer) {
+
+        // gather answer containers from quiz
+        var answerContainers = quizContainer.querySelectorAll('.answers');
+
+        // keep track of user's answers
+        var userAnswer = '';
+        var numCorrect = 0;
+
+        // for each question...
+        for (var i = 0; i < questions.length; i++) {
+
+            // find selected answer
+            userAnswer = (answerContainers[i].querySelector('input[name=question' + i + ']:checked') || {}).value;
+
+            // if answer is correct
+            if (userAnswer === questions[i].correctAnswer) {
+                // add to the number of correct answers
+                numCorrect++;
+
+                // color the answers green
+                answerContainers[i].style.color = 'lightgreen';
+            }
+            // if answer is wrong or blank
+            else {
+                // color the answers red
+                answerContainers[i].style.color = 'red';
+            }
+        }
+
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = numCorrect + ' correct ' + questions.length + ' incorrect ';
+    }
+
+    //show the questions
+    showQuestions(questions, quizContainer);
+
+    // on submit, show results
+    submitButton.onclick = function () {
+        showResults(questions, quizContainer, resultsContainer);
+        stop();
+        $("#time-left").hide();
+    }
+
+    
+}
