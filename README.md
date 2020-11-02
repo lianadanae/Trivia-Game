@@ -1,4 +1,6 @@
 # Trivia-Game
+
+
 US Capitals Quiz
 
 For this Javascript homework assignment I created a trivia quiz form with questions and multiple choice options using HTML, CSS, Javascript and Jquery.
