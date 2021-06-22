@@ -11,7 +11,7 @@
 // When a player clicks on the Start button hide the button and show time remaining and questions
 
 
-var number = 100;
+var number = 1000;
 var intervalId;
 
 // Hide the submit button
@@ -43,7 +43,7 @@ function decrement() {
 
         stop();
 
-        $("#results").html("<h2> All Done! </h2>");
+        $("#results").html("<h2> Time's Up! </h2>");
     }
 }
 // Function to clear timer
@@ -53,6 +53,246 @@ function stop() {
 
 //Question & Answer Array
 var myQuestions = [{
+        question: "What is the capital of Alabama?",
+        answers: {
+            a: "Birmingham",
+            b: "Mobile",
+            c: "Auburn",
+            d: "Montgomery"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Alaska?",
+        answers: {
+            a: "Sitka",
+            b: "Juneau",
+            c: "Anchorage",
+            d: "Fairbanks"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Arkansas?",
+        answers: {
+            a: "Fayetteville",
+            b: "Hot Springs",
+            c: "Little Rock",
+            d: "Bentonville"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of California?",
+        answers: {
+            a: "Sacramento",
+            b: "Los Angeles",
+            c: "San Francisco",
+            d: "San Diego"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Colorado?",
+        answers: {
+            a: "Boulder",
+            b: "Denver",
+            c: "Colorado Springs",
+            d: "Durango"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Connecticut?",
+        answers: {
+            a: "Stamford",
+            b: "New Haven",
+            c: "Hartford",
+            d: "Danbury"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Delaware?",
+        answers: {
+            a: "Wilmington",
+            b: "Newark",
+            c: "Delaware City",
+            d: "Dover"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Florida?",
+        answers: {
+            a: "Tallahassee",
+            b: "Miami",
+            c: "Orlando",
+            d: "Tampa"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Georgia?",
+        answers: {
+            a: "Savannah",
+            b: "Atlanta",
+            c: "Augusta",
+            d: "Athens"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Hawaii?",
+        answers: {
+            a: "Pearl City",
+            b: "Waikiki",
+            c: "Oahu",
+            d: "Honolulu"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Idaho?",
+        answers: {
+            a: "Boise",
+            b: "Coeur d'Alene",
+            c: "Twin Falls",
+            d: "Meridian"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Illinois?",
+        answers: {
+            a: "Peoria",
+            b: "Chicago",
+            c: "Springfield",
+            d: "Rockford"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Indiana?",
+        answers: {
+            a: "Evansville",
+            b: "Indianapolis",
+            c: "South Bend",
+            d: "Fort Wayne"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Iowa?",
+        answers: {
+            a: "Iowa City",
+            b: "Cedar Rapids",
+            c: "Des Moines",
+            d: "Davenport"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Kansas?",
+        answers: {
+            a: "Topeka",
+            b: "Wichita",
+            c: "Lawrence",
+            d: "Kansas City"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Kentucky?",
+        answers: {
+            a: "Elizabethtown",
+            b: "Frankfort",
+            c: "Lexington",
+            d: "Louisville"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Louisiana?",
+        answers: {
+            a: "Lafayette",
+            b: "Shreveport",
+            c: "New Orleans",
+            d: "Baton Rogue"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Maine?",
+        answers: {
+            a: "Portland",
+            b: "Augusta",
+            c: "Bangor",
+            d: "Kennebunkport"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Maryland?",
+        answers: {
+            a: "Baltimore",
+            b: "Annapolis",
+            c: "Rockville",
+            d: "Bethesda"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Massachusetts?",
+        answers: {
+            a: "Boston",
+            b: "Salem",
+            c: "Plymouth",
+            d: "Worcester"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Michigan?",
+        answers: {
+            a: "Grand Rapids",
+            b: "Detroit",
+            c: "Lansing",
+            d: "Ann Arbor"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Minnesota?",
+        answers: {
+            a: "Duluth",
+            b: "Minnesota City",
+            c: "Minneapolis",
+            d: "Saint Paul"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Mississippi?",
+        answers: {
+            a: "Biloxi",
+            b: "Gulfport",
+            c: "Hattiesburg",
+            d: "Jackson"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Missouri?",
+        answers: {
+            a: "Columbia",
+            b: "St. Louis",
+            c: "Jefferson City",
+            d: "Kansas City"
+        },
+        correctAnswer: "c"
+    },
+    {
         question: "What is the capital of Montana?",
         answers: {
             a: "Billings",
@@ -63,36 +303,185 @@ var myQuestions = [{
         correctAnswer: "b"
     },
     {
-        question: "What is the capital of Mississippi?",
+        question: "What is the capital of Nebraska?",
         answers: {
-            a:"Biloxi",
-            b:"Gulfport",
-            c:"Hattiesburg",
-            d:"Jackson"
+            a: "Lincoln",
+            b: "Omaha",
+            c: "Norfolk",
+            d: "Bellevue"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Nevada?",
+        answers: {
+            a: "Las Vegas",
+            b: "Reno",
+            c: "Henderson",
+            d: "Carson City"
         },
         correctAnswer: "d"
     },
-
     {
-        question: "What is the capital of Missouri?",
+        question: "What is the capital of New Hampshire?",
         answers: {
-            a:"Columbia",
-            b:"St. Louis",
-            c:"Jefferson City",
-            d:"Kansas City"
+            a: "Concord",
+            b: "Manchester",
+            c: "Nashua",
+            d: "Keene"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of New Jersey?",
+        answers: {
+            a: "Newark",
+            b: "Jersey City",
+            c: "Princeton",
+            d: "Trenton"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of New Mexico?",
+        answers: {
+            a: "Taos",
+            b: "Santa Fe",
+            c: "Albuquerque",
+            d: "Las Cruces"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of New York?",
+        answers: {
+            a: "Buffalo",
+            b: "New York City",
+            c: "Albany",
+            d: "Syracuse"
         },
         correctAnswer: "c"
     },
     {
-        question: "What is the capital of Maryland?",
+        question: "What is the capital of North Carolina?",
         answers: {
-            a:"Baltimore",
-            b:"Annapolis",
-            c:"Rockville",
-            d:"Bethesda"
+            a: "Raleigh",
+            b: "Charlotte",
+            c: "Asheville",
+            d: "Wilmington"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of North Dakota?",
+        answers: {
+            a: "Grand Forks",
+            b: "Fargo",
+            c: "Bismark",
+            d: "Williston"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Ohio?",
+        answers: {
+            a: "Toledo",
+            b: "Cincinnati",
+            c: "Cleveland",
+            d: "Columbus"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of Oklahoma?",
+        answers: {
+            a: "Stillwater",
+            b: "Oklahoma City",
+            c: "Tulsa",
+            d: "Edmond"
         },
         correctAnswer: "b"
-    }
+    },
+    {
+        question: "What is the capital of Oregon?",
+        answers: {
+            a: "Salem",
+            b: "Bend",
+            c: "Portland",
+            d: "Eugene"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of Pennsylvania?",
+        answers: {
+            a: "Scranton",
+            b: "Pittsburgh",
+            c: "Harrisburg",
+            d: "Philadelphia"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Rhode Island?",
+        answers: {
+            a: "Providence",
+            b: "Newport",
+            c: "Bristol",
+            d: "Warwick"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What is the capital of South Carolina?",
+        answers: {
+            a: "Myrtle Beach",
+            b: "Charleston",
+            c: "Greenville",
+            d: "Columbia"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "What is the capital of South Dakota?",
+        answers: {
+            a: "Sioux Falls",
+            b: "Rapid City",
+            c: "Pierre",
+            d: "Deadwood"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Tennessee?",
+        answers: {
+            a: "Memphis",
+            b: "Nashville",
+            c: "Knoxville",
+            d: "Franklin"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the capital of Texas?",
+        answers: {
+            a: "Houston",
+            b: "Dallas",
+            c: "Austin",
+            d: "San Antonio"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "What is the capital of Utah?",
+        answers: {
+            a: "Moab",
+            b: "Provo",
+            c: "St. George",
+            d: "Salt Lake City"
+        },
+        correctAnswer: "d"
+    },
 ];
 
 var quizContainer = document.getElementById('quiz');
@@ -161,7 +550,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 
         // show number of correct answers out of total
         resultsContainer.innerHTML = numCorrect + ' correct ' + questions.length + ' incorrect ';
-    }
+    };
 
     //show the questions
     showQuestions(questions, quizContainer);
@@ -172,6 +561,4 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
         stop();
         $("#time-left").hide();
     }
-
-    
-}
+};
